@@ -4,6 +4,8 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import lombok.Data;
 
@@ -15,5 +17,8 @@ public class Users {
 	private String username;
 	private String password;
 	@ManyToMany
+	@JoinTable(name = "users_role", joinColumns = {
+			@JoinColumn(name = "users_id", referencedColumnName = "id") }, inverseJoinColumns = {
+					@JoinColumn(name = "role_id", referencedColumnName = "id") })
 	private List<Role> roles;
 }
