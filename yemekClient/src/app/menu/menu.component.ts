@@ -111,6 +111,10 @@ export class MenuComponent implements OnInit {
     this.form.reset();
   }
   yemekEkle() {
+    if (this.form.value.adi == '' || this.form.value.fiyat == '' || this.form.value.kota == '') {
+      this.toastr.error('Formu boş bırakmayınız');
+      return;
+    }
     const guncelYemek: Yemek = {
       id: 0, // yeni eklenen yemek id'si 0 olacak
       adi: this.form.value.adi,
