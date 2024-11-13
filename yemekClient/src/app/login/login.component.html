@@ -1,0 +1,19 @@
+<div class="container">
+    <form [formGroup]="form">
+        <div class="loginpanel">
+            <div class="mb-3">
+                <label for="email" class="form-label">Username</label>
+                <input formControlName="username" type="email" class="form-control" id="email"
+                    placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input formControlName="password" type="password" class="form-control" id="password"
+                    placeholder="Password">
+            </div>
+            <div class="loginButton">
+                <button type="button" class="btn btn-primary" (click)="submit()">Login</button>
+            </div>
+        </div>
+    </form>
+</div>

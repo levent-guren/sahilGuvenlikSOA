@@ -1,0 +1,46 @@
+<div class="m-4">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adı</th>
+                <th>Fiyat</th>
+                <th>Kontenjan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (yemek of yemekler; track yemek.id) {
+            <tr (click)="yemekSec(yemek)" [class.table-info]="yemek == seciliYemek">
+                <td>{{ yemek.id }}</td>
+                <td>{{ yemek.adi }}</td>
+                <td>{{ yemek.fiyat }}</td>
+                <td>{{ yemek.kota }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <div class="mt-4 mb-2">
+            <button class="btn btn-warning" (click)="yemekGuncelle()">Güncelle</button>
+            <button class="btn btn-danger ms-2" (click)="yemekSil()">Sil</button>
+            <button class="btn btn-secondary ms-2" (click)="formTemizle()">Temizle</button>
+            <button class="btn btn-success ms-2" (click)="yemekEkle()">Ekle</button>
+        </div>
+        <form [formGroup]="form">
+            <div class="altform">
+                <div class="mb-3">
+                    <label for="adi" class="form-label">Adı</label>
+                    <input formControlName="adi" type="text" class="form-control" id="adi" placeholder="Yemek Adı">
+                </div>
+                <div class="mb-3">
+                    <label for="fiyat" class="form-label">Fiyat</label>
+                    <input formControlName="fiyat" type="number" class="form-control" id="fiyat" placeholder="Fiyatı">
+                </div>
+                <div class="mb-3">
+                    <label for="kota" class="form-label">Kontenjan</label>
+                    <input formControlName="kota" type="number" class="form-control" id="kota" placeholder="Kontenjan">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
